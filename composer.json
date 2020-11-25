@@ -23,6 +23,7 @@
   "require": {
     "php": "^7.2",
     "bk2k/bootstrap-package": "^11.0.2",
+    "skom/customer-sitepackage": "@dev",
     "t3g/ddev-utilities": "dev-develop",
     "typo3-console/composer-auto-commands": "^0.4.2",
     "typo3/cms-about": "^10.4",
@@ -71,6 +72,9 @@
   "scripts": {
     "test": [
       "codecept run acceptance -d -c ./Tests/codeception.yml"
+    ],
+    "rector": [
+      "bin/typo3-rector process packages/ --dry-run --config Tests/rector.php"
     ]
   },
   "config": {

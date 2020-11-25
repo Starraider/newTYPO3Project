@@ -116,6 +116,12 @@ return [
         'bootstrap_package' => [
             'packagePath' => 'typo3conf/ext/bootstrap_package/',
         ],
+        'skom_sitepackage' => [
+            'packagePath' => 'typo3conf/ext/skom_sitepackage/',
+        ],
+        'customer_sitepackage' => [
+            'packagePath' => 'typo3conf/ext/customer_sitepackage/',
+        ],
         'ddev_utilities' => [
             'packagePath' => 'typo3conf/ext/ddev_utilities/',
         ],
