@@ -1,9 +1,9 @@
-[![Build Status](https://travis-ci.org/benjaminkott/site-introduction.svg?branch=master)](https://travis-ci.org/benjaminkott/site-introduction)
+# newTYPO3Project
 
-# DDEV Setup
+## Installation
 
-To use this repository we recommend to use ddev as environment. Please download
-and install DDEV https://github.com/drud/ddev/releases.
+To begin a new Project use this repository as development environment.
+Please download and install [Docker](https://www.docker.com/products/docker-desktop) and [DDEV](https://github.com/drud/ddev/releases) first.
 
 [LINUX] Change permissions of ./var to 0777 (`chmod 0777 ./var/cache`) on host
 
@@ -12,24 +12,24 @@ and install DDEV https://github.com/drud/ddev/releases.
 * `ddev import-files --src=./assets`
 * `ddev composer install`
 
-# Frontend
+## Frontend
 
 * TYPO3: http://introduction.ddev.site
 * Mail Hogg: http://introduction.ddev.site:8025
 * PHP My Admin: http://introduction.ddev.site:8036
 
-# Credentials Backend
+## Credentials Backend
 
 * URL: http://introduction.ddev.local/typo3
 * Username: `admin`
 * Password: `password`
 
-# Admin Tools
+## Admin Tools
 
 * URL: http://introduction.ddev.site/typo3/install.php
 * Password: `password`
 
-# Executing Commands
+## Executing Commands
 
 If you need to execute commands like `composer` or `bin/typo3` you need to run
 these commands within the ddev containers. You can easily log into the web
@@ -39,41 +39,56 @@ within the container without the need to log into it.
 * Composer Install: `ddev composer install`
 * Database Export: `ddev exec bin/typo3 ddev:exportdb`
 
-# Execute acceptance tests
+
+## Environment Variables
+
+This setup is preconfigured to work with ddev. If you plan to use this setup
+in a different context, please create a `.env` file and adapt the settings
+to your system.
+
+### .env.dist
+
+    # Database Credentials
+    TYPO3_DB_CONNECTIONS_DEFAULT_HOST = "db"
+    TYPO3_DB_CONNECTIONS_DEFAULT_PORT = 3306
+    TYPO3_DB_CONNECTIONS_DEFAULT_USER = "db"
+    TYPO3_DB_CONNECTIONS_DEFAULT_PASS = "db"
+    TYPO3_DB_CONNECTIONS_DEFAULT_NAME = "db"
+
+    # Graphics
+    TYPO3_GFX_PROCESSOR = "ImageMagick"
+    TYPO3_GFX_PROCESSOR_PATH = "/usr/bin/"
+    TYPO3_GFX_PROCESSOR_PATH_LZW = "/usr/bin/"
+
+    # Mail
+    TYPO3_MAIL_TRANSPORT = "smtp"
+    TYPO3_MAIL_TRANSPORT_SMTP_SERVER = "localhost:1025"
+
+    # System
+    TYPO3_TRUSTED_HOST_PATTERN = "introduction.ddev.site"
+
+    # Site
+    SITE_INTRODUCTION_BASE = "http://introduction.ddev.site/"
+
+## Testing
+
+### Code maintenance
+
+#### Execute acceptance tests
 
 The ddev setup comes with a selenium-chrome container, codeception and some
 acceptance tests ready to run.
 
 * Run tests: `ddev composer test`
 
-# Environment Variables
+#### (TYPO3-)Rector
 
-This setup is preconfigured to work with ddev. If you plan to use this setup
-in a different context, please create a `.env` file and adapt the settings
-to your system.
+Rector can help you with maintenance your PHP code by analyse it for changes you should fix. Rector can even change your code for you. With the additional TYPO3-Rectors it can help you with keeping up with the changes in the TYPO3-System. [more >>]
 
-## .env.dist
+Dry run:
 
-```
-# Database Credentials
-TYPO3_DB_CONNECTIONS_DEFAULT_HOST = "db"
-TYPO3_DB_CONNECTIONS_DEFAULT_PORT = 3306
-TYPO3_DB_CONNECTIONS_DEFAULT_USER = "db"
-TYPO3_DB_CONNECTIONS_DEFAULT_PASS = "db"
-TYPO3_DB_CONNECTIONS_DEFAULT_NAME = "db"
+    bin/typo3-rector process packages/customer_sitepackage --dry-run --config Tests/rector.php
+Let's rector do the work for you:
 
-# Graphics
-TYPO3_GFX_PROCESSOR = "ImageMagick"
-TYPO3_GFX_PROCESSOR_PATH = "/usr/bin/"
-TYPO3_GFX_PROCESSOR_PATH_LZW = "/usr/bin/"
-
-# Mail
-TYPO3_MAIL_TRANSPORT = "smtp"
-TYPO3_MAIL_TRANSPORT_SMTP_SERVER = "localhost:1025"
-
-# System
-TYPO3_TRUSTED_HOST_PATTERN = "introduction.ddev.site"
-
-# Site
-SITE_INTRODUCTION_BASE = "http://introduction.ddev.site/"
-```
+    bin/typo3-rector process packages/customer_sitepackage  --config Tests/rector.php
+You can config Rector in the Tests/rector.php file.
