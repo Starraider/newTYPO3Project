@@ -92,3 +92,9 @@ Let's rector do the work for you:
 
     bin/typo3-rector process packages/customer_sitepackage  --config Tests/rector.php
 You can config Rector in the Tests/rector.php file.
+
+## Linting
+
+### TypoScript Linting
+
+    bin/typoscript-lint packages/ -c .tslint.yaml
