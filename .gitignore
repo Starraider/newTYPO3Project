@@ -1,3 +1,4 @@
+.DS_Store
 /.ddev/docker-compose.yaml
 /bin
 /public/fileadmin/*
