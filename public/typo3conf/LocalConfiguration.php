@@ -86,12 +86,27 @@ return [
     ],
     'GFX' => [
         'processor' => 'ImageMagick',
-        'processor_allowTemporaryMasksAsPng' => false,
+        'processor_allowTemporaryMasksAsPng' => '',
         'processor_colorspace' => 'sRGB',
         'processor_effects' => true,
-        'processor_enabled' => true,
+        'processor_enabled' => '1',
         'processor_path' => '/usr/bin/',
         'processor_path_lzw' => '/usr/bin/',
+    ],
+    'LOG' => [
+        'TYPO3' => [
+            'CMS' => [
+                'deprecations' => [
+                    'writerConfiguration' => [
+                        'notice' => [
+                            'TYPO3\CMS\Core\Log\Writer\FileWriter' => [
+                                'disabled' => false,
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ],
     ],
     'MAIL' => [
         'transport' => 'sendmail',
@@ -102,6 +117,25 @@ return [
         'transport_smtp_username' => '',
     ],
     'SYS' => [
+        'caching' => [
+            'cacheConfigurations' => [
+                'hash' => [
+                    'backend' => 'TYPO3\\CMS\\Core\\Cache\\Backend\\Typo3DatabaseBackend',
+                ],
+                'imagesizes' => [
+                    'backend' => 'TYPO3\\CMS\\Core\\Cache\\Backend\\Typo3DatabaseBackend',
+                ],
+                'pages' => [
+                    'backend' => 'TYPO3\\CMS\\Core\\Cache\\Backend\\Typo3DatabaseBackend',
+                ],
+                'pagesection' => [
+                    'backend' => 'TYPO3\\CMS\\Core\\Cache\\Backend\\Typo3DatabaseBackend',
+                ],
+                'rootline' => [
+                    'backend' => 'TYPO3\\CMS\\Core\\Cache\\Backend\\Typo3DatabaseBackend',
+                ],
+            ],
+        ],
         'devIPmask' => '*',
         'displayErrors' => 1,
         'encryptionKey' => '517d47fd2681627245de9c4a4a726ac2e833c8bca7c5c0ad543c12e9f2ddbd8803a83044b6a4f247b26ceddf03be451d',
