@@ -69,7 +69,7 @@
     "codeception/module-webdriver": "^1.1",
     "helmich/typo3-typoscript-lint": "^2.3",
     "sourcebroker/deployer-extended-typo3": "^13.1",
-    "ssch/typo3-rector": "^0.5.1"
+    "ssch/typo3-rector": "^0.9"
   },
   "scripts": {
     "test": [
