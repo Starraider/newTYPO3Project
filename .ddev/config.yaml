@@ -2,7 +2,7 @@ APIVersion: v1.9.1
 name: introduction
 type: typo3
 docroot: public
-php_version: "7.2"
+php_version: "7.3"
 composer_version: "2"
 webserver_type: nginx-fpm
 router_http_port: "80"
