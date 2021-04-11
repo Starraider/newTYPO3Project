@@ -70,6 +70,13 @@ to your system.
     # Site
     SITE_INTRODUCTION_BASE = "http://introduction.ddev.site/"
 
+## Saving changes
+
+After you have worked in the backend, you should export the changes to keep them.
+If you want to permanently add files, you should put them in the assets folder, which will be imported to the fileadmin folder.
+
+* `ddev export-db --file=./data/db.sql`
+
 ## Testing
 
 ### Code maintenance
@@ -78,6 +85,7 @@ to your system.
 
 The ddev setup comes with a selenium-chrome container, codeception and some
 acceptance tests ready to run.
+(You need to install [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/getting-started) first.)
 
 * Run tests: `ddev composer test`
 
