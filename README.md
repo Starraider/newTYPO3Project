@@ -17,19 +17,19 @@ Please download and install [Docker](https://www.docker.com/products/docker-desk
 
 ## Frontend
 
-* TYPO3: https://introduction.ddev.site
-* Mail Hogg: http://introduction.ddev.site:8025
-* PHP My Admin: http://introduction.ddev.site:8036
+* TYPO3: [https://introduction.ddev.site](https://introduction.ddev.site)
+* Mail Hogg: [http://introduction.ddev.site:8025](http://introduction.ddev.site:8025)
+* PHP My Admin: [http://introduction.ddev.site:8036](http://introduction.ddev.site:8036)
 
 ## Credentials Backend
 
-* URL: https://introduction.ddev.local/typo3
+* URL: [https://introduction.ddev.local/typo3](https://introduction.ddev.local/typo3)
 * Username: `admin`
 * Password: `password`
 
 ## Admin Tools
 
-* URL: https://introduction.ddev.site/typo3/install.php
+* URL: [https://introduction.ddev.site/typo3/install.php](https://introduction.ddev.site/typo3/install.php)
 * Password: `password`
 
 ## Executing Commands
@@ -46,7 +46,7 @@ within the container without the need to log into it.
 
 You can use the commands from the typo3-console and the TYPO3 CLI.
 
-### typo3-console:
+### typo3-console
 
         ddev typo3cms <command>
 
