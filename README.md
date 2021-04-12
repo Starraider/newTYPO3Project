@@ -1,11 +1,14 @@
 # newTYPO3Project
 
+This project is based on [TYPO3-Documentation/site-introduction](https://github.com/TYPO3-Documentation/site-introduction).
+It provides a whole development enviroment for new TYPO3 projects.
+
 ## Installation
 
 To begin a new Project use this repository as development environment.
 Please download and install [Docker](https://www.docker.com/products/docker-desktop) and [DDEV](https://github.com/drud/ddev/releases) first.
 
-[LINUX] Change permissions of ./var to 0777 (`chmod 0777 ./var/cache`) on host
+[LINUX / MacOS] Change permissions of ./var to 0777 (`chmod 0777 ./var/cache`) on host
 
 * `ddev start`
 * `ddev import-db --src=./data/db.sql`
@@ -37,8 +40,37 @@ container by executing the command `ddev ssh`. Its also possible to run commands
 within the container without the need to log into it.
 
 * Composer Install: `ddev composer install`
-* Database Export: `ddev exec bin/typo3 ddev:exportdb`
+* Database Export: `ddev exec vendor/bin/typo3 ddev:exportdb`
 
+## Using the typo3-console or the TYPO3 CLI
+
+You can use the commands from the typo3-console and the TYPO3 CLI.
+
+### typo3-console:
+
+        ddev typo3cms <command>
+
+Example:
+
+        ddev typo3cms cache:flush
+
+        ddev typo3cms database:updateschema
+
+        ddev typo3cms database:export
+
+### TYPO3 CLI
+
+        typo3 <command>
+
+Example:
+
+        ddev typo3 site:list
+
+        ddev typo3 list
+
+        ddev typo3 extension:list
+
+        ddev typo3 ddev:exportdb
 
 ## Environment Variables
 
@@ -85,7 +117,7 @@ If you want to permanently add files, you should put them in the assets folder, 
 
 The ddev setup comes with a selenium-chrome container, codeception and some
 acceptance tests ready to run.
-(You need to install [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/getting-started) first.)
+[More information](https://docs.typo3.org/m/typo3/reference-coreapi/master/en-us/Testing/ProjectTesting.html)
 
 * Run tests: `ddev composer test`
 
