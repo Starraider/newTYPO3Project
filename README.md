@@ -17,19 +17,19 @@ Please download and install [Docker](https://www.docker.com/products/docker-desk
 
 ## Frontend
 
-* TYPO3: http://introduction.ddev.site
+* TYPO3: https://introduction.ddev.site
 * Mail Hogg: http://introduction.ddev.site:8025
 * PHP My Admin: http://introduction.ddev.site:8036
 
 ## Credentials Backend
 
-* URL: http://introduction.ddev.local/typo3
+* URL: https://introduction.ddev.local/typo3
 * Username: `admin`
 * Password: `password`
 
 ## Admin Tools
 
-* URL: http://introduction.ddev.site/typo3/install.php
+* URL: https://introduction.ddev.site/typo3/install.php
 * Password: `password`
 
 ## Executing Commands
