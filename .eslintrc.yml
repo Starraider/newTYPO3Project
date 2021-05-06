@@ -1,0 +1,14 @@
+env:
+    browser: true
+    es2020: true
+plugins:
+    - yaml
+    - html
+    - md
+extends:
+    - google
+    - plugin:yaml/recommended
+    - plugin:md/recommended
+parserOptions:
+    ecmaVersion: 11
+rules: {}
